@@ -16,4 +16,15 @@ router.post('/signUp', async(req, res) => {
   res.status(200).json({token})
 });
 
+router.post('/signIn', async(req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({email});
+
+  if(!user) return res.status(401).send("The email doesn't exist");
+  if(user.password !== password) return res.status(401).send("Wrong password");
+  
+  const token = jwt.sign({_id: user._id},process.env.SECRET);
+  return res.status(200).json({token});
+});
+
 module.exports = router;
