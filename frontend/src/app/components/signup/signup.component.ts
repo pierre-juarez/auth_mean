@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,8 +16,20 @@ export class SignupComponent {
     password: ''
   }
 
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ){}
+
   signUp(){
-    console.log("🚀 ~ file: signup.component.ts ~ line 17 ~ SignupComponent ~ signUp ~ this.user;", this.user)
+    this.authService.signUp(this.user)
+      .subscribe({
+        next: (res) => {
+          localStorage.setItem('token',res.token);
+          this.router.navigate(['/private']);
+        },
+        error: (e) => console.error(e)
+    })
   }
 
 }
