@@ -14,12 +14,19 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signin" routerLinkActive="bg-warning">SignIn</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signup" routerLinkActive="bg-warning">SignUp</a>
-        </li>
+        <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signin" routerLinkActive="bg-warning">SignIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup" routerLinkActive="bg-warning">SignUp</a>
+          </li>
+        </ng-container>
+        <ng-template #loggedIn>
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white rounded-pill pointer" (click)="authService.logout()">Logout</a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>
