@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class SignupComponent {
 
+  user = {
+    name: '',
+    lastname: '',
+    email: '',
+    password: ''
+  }
+
+  signUp(){
+    console.log("🚀 ~ file: signup.component.ts ~ line 17 ~ SignupComponent ~ signUp ~ this.user;", this.user)
+  }
+
 }
