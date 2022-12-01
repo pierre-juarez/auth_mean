@@ -1,1 +1,46 @@
-<p>signin works!</p>
+<!-- Section: Design Block -->
+<section class="text-center">
+  <!-- Background image -->
+  <div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 150px;
+        "></div>
+  <!-- Background image -->
+
+  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-5 px-md-5">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-5">Sign In!</h2>
+          <form (submit)="signIn()">
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="txtEmail" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" class="form-control" required/>
+              <label class="form-label" for="txtEmail">Email address</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" name="txtPassword" id="txtPassword" [(ngModel)]="user.password" class="form-control" required/>
+              <label class="form-label" for="txtPassword">Password</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-danger btn-block mb-4">
+              Sign In
+            </button>
+         
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
