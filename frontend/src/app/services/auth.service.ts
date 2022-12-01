@@ -18,4 +18,8 @@ export class AuthService {
     return this.http.post<any>(this.URL + '/signin', user);
   }
 
+  loggedIn(): Boolean {
+    return !!localStorage.getItem('token');
+  }
+
 }

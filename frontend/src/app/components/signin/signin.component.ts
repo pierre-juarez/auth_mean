@@ -25,6 +25,7 @@ export class SigninComponent {
     this.authService.signIn(this.user)
       .subscribe({
         next: (res) => {
+          localStorage.setItem('token',res.token);
           this.router.navigate(['/private']);
         },
         error: (err) => console.log(err)
