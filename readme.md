@@ -1,6 +1,6 @@
 # Auth MEAN🤖
 
-_Basic authentication with Angular using JsonWebToken (JWT), and user validation, with route protection._ 🗝️
+_Basic authentication with MongoDB, Express, Angular and NodeJS (MEAN), using JsonWebToken (JWT), and user validation, with route protection._ 🗝️
 
 ## Presentation
 
